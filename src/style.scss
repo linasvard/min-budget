@@ -1,0 +1,32 @@
+/* .lexend-<uniquifier> {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(13, 49, 34);
+  font-family: "Lexend", sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+header {
+  padding: 30px;
+  text-align: center;
+  color: beige;
+}
+
+.smallHeader {
+  font-size: 2rem;
+  font-style: italic;
+  color: #68d07b;
+}
