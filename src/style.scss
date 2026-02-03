@@ -15,7 +15,7 @@ body {
   font-family: "Lexend", sans-serif;
 }
 
-h1 {
+header h1 {
   font-size: 3rem;
 }
 
@@ -29,4 +29,40 @@ header {
   font-size: 2rem;
   font-style: italic;
   color: #68d07b;
+}
+
+/* Main content */
+
+main {
+  background-color: beige;
+  padding: 25px;
+  
+  margin: 0 20px;
+}
+
+main h1 {
+  font-size: 2rem;
+  color: rgb(13, 49, 34);
+  text-align: center;
+}
+
+
+
+/* Desktop */
+@media (min-width: 1200px) {
+  main {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+}
+
+@media (min-width: 600px) {
+  main {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  
+
 }
