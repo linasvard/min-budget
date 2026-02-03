@@ -8,16 +8,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Budget App</title>
+    <title>Min Budget.</title>
   </head>
   <body>
     <header>
-      <h1><span class="smallHeader">Min</span> Budget</h1>
+      <h1><span class="smallHeader">Min</span> Budget<span>.</span></h1>
     </header>
     
     <main>
       <section class="budgetFormWrapper">
         <h1>Inmatning</h1>
+        <div class="incomeOrExpenseRadioBtns">
+          <!---Val: Inkomst---->
+          <label>
+            <span>Inkomst</span>
+            <input type="radio" name="incomeOrExpense" value="income" class="income">
+          </label>
+          <!---Val: Utgift---->
+          <label>
+            <span>Utgift</span>
+            <input type="radio" name="incomeOrExpense" value="expense" class="expense">
+          </label>
+        </div>
       </section>
     </main>
 

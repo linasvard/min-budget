@@ -19,23 +19,27 @@ header h1 {
   font-size: 3rem;
 }
 
+
 header {
   padding: 30px;
   text-align: center;
   color: beige;
+  
 }
-
+header span {
+  color:#68d07b;
+}
 .smallHeader {
   font-size: 2rem;
-  font-style: italic;
+  margin-right: -10px;
   color: #68d07b;
 }
 
 /* Main content */
 
 main {
-  background-color: beige;
-  padding: 25px;
+  
+  padding: 16px;
   
   margin: 0 20px;
 }
@@ -44,6 +48,11 @@ main h1 {
   font-size: 2rem;
   color: rgb(13, 49, 34);
   text-align: center;
+}
+
+.budgetFormWrapper {
+  background-color: beige;
+  padding: 20px;
 }
 
 
