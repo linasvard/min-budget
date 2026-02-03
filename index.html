@@ -32,23 +32,52 @@
         </div>
         <div id="income" class="hidden">
           <form id="incomeForm">
-            <span>Kategori</span>
-            <select name="category" id="category">
-              <option value="">Typ av inkomst</option>
-              <option value="salary">Lön</option>
-              <option value="grant">Bidrag</option>
-              <option value="csn">Studiemedel</option>
-              <option value="other">Annat</option>
-            </select>
-            <span>Summa:</span>
-            <input type="number" name="incomeField" placeholder="SEK" class="incomenumber"> 
+            
+            <div>
+              <span>Kategori</span>
+              <select name="incomeCategory" id="incomeCategory">
+                <option value="">Typ av inkomst</option>
+                <option value="salary">Lön</option>
+                <option value="grant">Bidrag</option>
+                <option value="csn">Studiemedel</option>
+                <option value="other">Övrigt</option>
+              </select>
+            </div>
+            <div>
+              <span>Beskrivning</span>
+              <input type="text" name="incomeField" placeholder="Förtydligande" class="incomedescription">
+            </div>
+            <div>
+              <span>Summa:</span>
+              <input type="number" name="incomeField" placeholder="SEK" class="incomenumber">
+            </div>  
           </form>
+          <button id="addIncomeBtn">Lägg till</button>
         </div>
 
         <div id="expense" class="hidden">
           <form id="expenseForm">
+            <div>
+              <span>Kategori</span>
+              <select name="expenseCategory" id="expenseCategory">
+                <option value="">Typ av utgift</option>
+                <option value="food">Mat & dagligvaror</option>
+                <option value="transportation">Transport</option>
+                <option value="entertainment">Nöje & fritid</option>
+                <option value="otherpersonal">Övrigt & personligt</option>
+              </select>
+            </div>
+            <div>
+              <span>Beskrivning</span>
+              <input type="text" name="expenseField" placeholder="Förtydligande" class="expensedescription">
+            </div>
+            <div>
+              <span>Summa:</span>
+              <input type="number" name="expenseField" placeholder="SEK" class="expenseenumber">
+            </div>
             
-          </form>
+          </form> 
+          <button id="addExpenseBtn">Lägg till</button>
         </div>
       </section>
     </main>
