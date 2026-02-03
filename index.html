@@ -12,7 +12,7 @@
   </head>
   <body>
     <header>
-      <h1><span class="smallHeader">Min</span> Budget<span>.</span></h1>
+      <h1><span class="smallHeader">Min </span>Budget<span>.</span></h1>
     </header>
     
     <main>
@@ -29,6 +29,26 @@
             <span>Utgift</span>
             <input type="radio" name="incomeOrExpense" value="expense" class="expense">
           </label>
+        </div>
+        <div id="income" class="hidden">
+          <form id="incomeForm">
+            <span>Kategori</span>
+            <select name="category" id="category">
+              <option value="">Typ av inkomst</option>
+              <option value="salary">Lön</option>
+              <option value="grant">Bidrag</option>
+              <option value="csn">Studiemedel</option>
+              <option value="other">Annat</option>
+            </select>
+            <span>Summa:</span>
+            <input type="number" name="incomeField" placeholder="SEK" class="incomenumber"> 
+          </form>
+        </div>
+
+        <div id="expense" class="hidden">
+          <form id="expenseForm">
+            
+          </form>
         </div>
       </section>
     </main>
