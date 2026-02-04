@@ -1,7 +1,10 @@
 // @ts-nocheck 
 
-
 import './style.scss'
+
+// ===========================
+// VAL AV INMATNING
+// ===========================
 
 const incomeRadioBtn = document.querySelector('input[type="radio"].income');
 const expenseRadioBtn = document.querySelector('input[type="radio"].expense');
@@ -20,3 +23,4 @@ function toggleIncomeOrExpense(e) {
     document.querySelector('#expense')?.classList.remove('hidden');
   }
 }
+

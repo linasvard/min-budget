@@ -31,8 +31,13 @@ header span {
 }
 .smallHeader {
   font-size: 2rem;
+  font-weight: 800;
   margin-right: -10px;
   color: #68d07b;
+}
+
+header .smallHeader2 {
+  font-size: 3rem;
 }
 
 .smallHeader2 {
@@ -60,10 +65,11 @@ main h1 {
   text-align: center;
 }
 
-.budgetFormWrapper {
+.budgetFormWrapper, .totalBalanceWrapper {
   background-color: beige;
   padding: 20px;
   border-radius: 4px;
+  margin-bottom: 35px;
 }
 
 .incomeOrExpenseRadioBtns {
@@ -156,6 +162,8 @@ select:focus {
   width: 120px;
   margin-top: 20px;
 }
+
+
 
 /* Desktop */
 @media (min-width: 1200px) {
