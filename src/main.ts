@@ -3,6 +3,13 @@
 import './style.scss'
 
 // ===========================
+// DATALAGRING
+// ===========================
+
+// Array för att lagra alla transaktioner (inkomster och utgifter)
+let transactions = [];
+
+// ===========================
 // VAL AV INMATNING
 // ===========================
 
@@ -24,3 +31,187 @@ function toggleIncomeOrExpense(e) {
   }
 }
 
+// ===========================
+// LÄGG TILL INKOMST
+// ===========================
+
+const addIncomeBtn = document.querySelector('#addIncomeBtn');
+addIncomeBtn?.addEventListener('click', addIncome);
+
+
+
+function addIncome() {
+  // Hämta värden från formuläret
+  const category = document.querySelector('#incomeCategory').value;
+  const description = document.querySelector('.incomedescription').value;
+  const amount = document.querySelector('.incomenumber').value;
+
+  // Validera att kategori och summa är ifyllda
+  if (!category || !amount) {
+    return; // Avbryt om något saknas
+  }
+
+  // Skapa transaktionsobjekt
+  const transaction = {
+    id: Date.now(),
+    type: 'income',
+    category: category,
+    description: description,
+    amount: parseFloat(amount.replace(/\s/g, ''))
+  };
+
+  // Lägg till i transaktionsarrayen
+  transactions.push(transaction);
+
+  // Rensa formuläret
+  document.querySelector('#incomeCategory').value = '';
+  document.querySelector('.incomedescription').value = '';
+  document.querySelector('.incomenumber').value = '';
+
+  // Uppdatera visningen
+  renderTransactions();
+}
+
+// ===========================
+// LÄGG TILL UTGIFT
+// ===========================
+
+const addExpenseBtn = document.querySelector('#addExpenseBtn');
+addExpenseBtn?.addEventListener('click', addExpense);
+
+function addExpense() {
+  // Hämta värden från formuläret
+  const category = document.querySelector('#expenseCategory').value;
+  const description = document.querySelector('.expensedescription').value;
+  const amount = document.querySelector('.expenseenumber').value;
+
+  // Validera att kategori och summa är ifyllda
+  if (!category || !amount) {
+    return; // Avbryt om något saknas
+  }
+
+  // Skapa transaktionsobjekt
+  const transaction = {
+    id: Date.now(),
+    type: 'expense',
+    category: category,
+    description: description,
+    amount: parseFloat(amount.replace(/\s/g, ''))
+  };
+
+  // Lägg till i transaktionsarrayen
+  transactions.push(transaction);
+
+  // Rensa formuläret
+  document.querySelector('#expenseCategory').value = '';
+  document.querySelector('.expensedescription').value = '';
+  document.querySelector('.expenseenumber').value = '';
+
+  // Uppdatera visningen
+  renderTransactions();
+}
+
+// ===========================
+// RENDERA TRANSAKTIONSLISTA
+// ===========================
+
+function renderTransactions() {
+  const listContainer = document.querySelector('#listOfIncomeAndExpenses');
+  
+  // Beräkna total balans
+  const balance = transactions.reduce((total, transaction) => {
+    if (transaction.type === 'income') {
+      return total + transaction.amount;
+    } else {
+      return total - transaction.amount;
+    }
+  }, 0);
+
+  // Skapa HTML för listan
+  let html = `
+    <div class="balanceSummary">
+      <h2>Totalt: <span class="${balance >= 0 ? 'positive' : 'negative'}">${balance.toFixed(2)} kr</span></h2>
+    </div>
+    <div class="transactionsList">
+  `;
+
+  // Lägg till varje transaktion i listan
+  transactions.forEach(transaction => {
+    const typeClass = transaction.type === 'income' ? 'income-item' : 'expense-item';
+    const sign = transaction.type === 'income' ? '+' : '-';
+    
+    html += `
+      <div class="transactionItem ${typeClass}">
+        <div class="transactionInfo">
+          <span class="transactionCategory">${getCategoryName(transaction.category)}</span>
+          <span class="transactionDescription">${transaction.description}</span>
+        </div>
+        <div class="transactionAmount">
+          <span>${sign}${transaction.amount.toFixed(2)} SEK</span>
+          <button class="deleteBtn" onclick="deleteTransaction(${transaction.id})">×</button>
+        </div>
+      </div>
+    `;
+  });
+
+  html += '</div>';
+  
+  listContainer.innerHTML = html;
+}
+
+// ===========================
+// TA BORT TRANSAKTION
+// ===========================
+
+window.deleteTransaction = function(id) {
+  transactions = transactions.filter(t => t.id !== id);
+  renderTransactions();
+}
+
+// ===========================
+// HJÄLPFUNKTION
+// ===========================
+
+function getCategoryName(category) {
+  const categories = {
+    salary: 'Lön',
+    grant: 'Bidrag',
+    csn: 'Studiemedel',
+    food: 'Mat & dagligvaror',
+    transportation: 'Transport',
+    entertainment: 'Nöje & fritid',
+    otherpersonal: 'Övrigt & personligt',
+    other: 'Övrigt'
+  };
+  
+  return categories[category] || category;
+}
+
+// Initialisera tom lista när sidan laddas
+renderTransactions();
+
+
+
+/*
+// ===================================
+// HANTERING AV INKOMSTER OCH UTGIFTER
+// ===================================
+let transactions = [];
+
+const addIncomeBtn = document.querySelector('#addIncomeBtn');
+const addExpenseBtn = document.querySelector('#addExpenseBtn');
+
+// Eventlisteners
+
+addExpenseBtn?.addEventListener('click', addIncome);
+// addExpenseBtn?.addEventListener('click', addExpense);
+
+function addIncome() {
+  const incomeCategory = document.querySelector('#incomeCategory').value;
+  const incomeDescription = document.querySelector('.incomedescription').value;
+  const incomeAmount = parseFloat(document.querySelector('.incomenumber').value);
+  
+  
+}
+  */
+ 

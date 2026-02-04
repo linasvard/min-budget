@@ -97,6 +97,21 @@ button:hover {
 
 input {
   margin: 0 5px;
+  padding: 2px;
+  font-family: "Lexend", sans-serif;
+  color: rgb(13, 49, 34);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background-color: white;
+  cursor: pointer;
+  width: 100%;
+}
+
+input:focus {
+  
+  outline: none;
+  border: 2px #68d07b solid;
 }
 
 input[type="radio"] {
@@ -137,7 +152,7 @@ select {
 
 select:focus {
   outline: none;
-  border-color: #68d07b;
+  border: 2px #68d07b solid;
   color: rgb(13, 49, 34);
 }
 
@@ -154,6 +169,8 @@ select:focus {
   text-align: left;
   margin: 0 30px;
 }
+
+
 
 #addExpenseBtn, #addIncomeBtn {
   display: block;
