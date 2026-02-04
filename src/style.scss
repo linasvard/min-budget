@@ -35,7 +35,17 @@ header span {
   color: #68d07b;
 }
 
+.smallHeader2 {
+  font-size: 2rem;
+  margin-right: -10px;
+  color: #e14a4a;
+}
+
 /* Main content */
+
+.hidden {
+  display: none;
+}
 
 main {
   
@@ -133,7 +143,11 @@ select:focus {
   margin-inline: 30px;
 }
 
-
+#income h1, #expense h1 {
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 0 30px;
+}
 
 #addExpenseBtn, #addIncomeBtn {
   display: block;
