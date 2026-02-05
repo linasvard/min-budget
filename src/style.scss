@@ -59,6 +59,10 @@ main {
   margin: 0 20px;
 }
 
+h2 {
+  color:rgb(13, 49, 34);
+}
+
 main h1 {
   font-size: 2rem;
   color: rgb(13, 49, 34);
@@ -180,7 +184,60 @@ select:focus {
   margin-top: 20px;
 }
 
+/* 
+Summeringslista
+*/
 
+.balanceSummary h2 {
+  text-align: center;
+  margin: 20px;
+}
+
+.positive {
+  color: rgb(19, 113, 52);
+}
+.negative {
+  color: #e14a4a;
+}
+
+.transactionItem {
+  padding: 0 30px;
+  color:rgb(13, 49, 34);
+}
+
+.transactionCategory {
+  font-weight: 600;
+  color: black;
+}
+
+.transactionDescription {
+  color: black;
+  margin-inline: 10px;
+  font-size: 0.9rem;
+  opacity: 80%;
+}
+
+.transactionAmount {
+  margin-bottom: 15px;
+  margin-top: 5px;
+
+}
+
+.income-item {
+  color: rgb(19, 113, 52);
+}
+
+.expense-item {
+  color: #e14a4a;
+}
+
+.deleteBtn {
+  padding: 2px;
+  width: 25px;
+  height: 100%;
+  margin-inline: 5px;
+   
+}
 
 /* Desktop */
 @media (min-width: 1200px) {

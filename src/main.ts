@@ -194,11 +194,11 @@ function getCategoryName(category) {
   const categories = {
     salary: 'Lön',
     grant: 'Bidrag',
-    csn: 'Studiemedel',
+    studentincome: 'Studiemedel',
     food: 'Mat & dagligvaror',
-    transportation: 'Transport',
-    entertainment: 'Nöje & fritid',
-    otherpersonal: 'Övrigt & personligt',
+    transport: 'Transport',
+    entertainment: 'Nöje och fritid',
+    otherpersonal: 'Övrigt och personligt',
     other: 'Övrigt'
   };
   
