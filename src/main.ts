@@ -150,6 +150,7 @@ function renderTransactions() {
     <div class="balanceSummary">
       <h2>Totalt: <span class="${balance >= 0 ? 'positive' : 'negative'}">${balance.toFixed(2)} kr</span></h2>
     </div>
+    
     <div class="transactionsList">
   `;
 
@@ -191,18 +192,17 @@ window.deleteTransaction = function(id) {
 // ===========================
 
 function getCategoryName(category) {
-  const categories = {
-    salary: 'Lön',
-    grant: 'Bidrag',
-    studentincome: 'Studiemedel',
-    food: 'Mat & dagligvaror',
-    transport: 'Transport',
-    entertainment: 'Nöje och fritid',
-    otherpersonal: 'Övrigt och personligt',
-    other: 'Övrigt'
-  };
+  // Slå ihop alla kategorier till en lookup-tabell
+  const allCategories = [
+    ...categories.income,
+    ...categories.expenses
+  ];
   
-  return categories[category] || category;
+  // Hitta kategorin som matchar
+  const found = allCategories.find(cat => cat.value === category);
+  
+  // Returnera texten om den hittas, annars returnera originalvärdet
+  return found ? found.text : category;
 }
 
 // Initialisera tom lista när sidan laddas
