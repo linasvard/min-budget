@@ -1,7 +1,7 @@
 // @ts-nocheck 
 
 import './style.scss'
-
+import categories from './categories.json';
 // ===========================
 // DATALAGRING
 // ===========================
@@ -29,6 +29,24 @@ function toggleIncomeOrExpense(e) {
     document.querySelector('#income')?.classList.add('hidden');
     document.querySelector('#expense')?.classList.remove('hidden');
   }
+}
+
+// =================
+// DROPDOWN
+// =================
+
+const catIncomeDropdown = document.querySelector('#incomeCategory');
+if (catIncomeDropdown) {
+  categories.income.forEach((category) => {
+    catIncomeDropdown.innerHTML += `<option value="${category.value}">${category.text}</option>`
+  });
+}
+
+const catExpenseDropdown = document.querySelector('#expenseCategory');
+if (catExpenseDropdown) {
+  categories.expenses.forEach((category) => {
+    catExpenseDropdown.innerHTML += `<option value="${category.value}">${category.text}</option>`
+  });
 }
 
 // ===========================

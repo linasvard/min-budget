@@ -1,0 +1,38 @@
+{
+    "expenses": [
+        {
+            "text": "Mat och Dagligvaror",
+            "value": "food"
+        },
+        {
+            "text": "Transport",
+            "value": "transport"
+        },
+        {
+            "text": "Nöje och Fritid",
+            "value": "entertainment"
+        },
+        {
+            "text": "Övrigt och personligt",
+            "value": "other"
+        }
+    ],
+    "income": [
+        {
+            "text": "Lön",
+            "value": "salary"
+        },
+        {
+            "text": "Bidrag",
+            "value": "grant"
+        },
+        {
+            "text": "Studiemedel",
+            "value": "studentincome"
+        },
+        {
+            "text": "Övrigt",
+            "value": "other"
+        }
+    ]
+}
