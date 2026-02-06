@@ -181,7 +181,7 @@ select:focus {
 #incomeForm div, #expenseForm div {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  
+  align-items: center;
   margin: 15px 0;
   margin-inline: 30px;
 }
