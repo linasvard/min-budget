@@ -59,27 +59,30 @@ header .smallHeader2 {
 
 main {
   max-width: 1000px;
-  padding: 0 20px;
+  padding: 0 15px;
   
   margin: 0 10px;
 }
 
-h2 {
+main h2 {
   color:rgb(13, 49, 34);
+  padding: 0 30px;
 }
 
 main h1 {
   font-size: 2rem;
   color: rgb(13, 49, 34);
   text-align: center;
-  padding: 5px;
+  padding: 5px 0;
+  margin-top: 10px;
 }
 
 .budgetFormWrapper, .totalBalanceWrapper {
   background-color: beige;
   padding: 16px;
   border-radius: 4px;
-  margin-bottom: 35px;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .incomeOrExpenseRadioBtns {
@@ -106,9 +109,9 @@ button:hover {
   
 }
 
-input {
-  margin: 0 5px;
-  padding: 2px;
+input[type="text"] {
+ 
+  padding: 4px;
   font-family: "Lexend", sans-serif;
   color: rgb(13, 49, 34);
   border: 1px solid #ddd;
@@ -116,17 +119,22 @@ input {
   font-size: 0.9rem;
   background-color: white;
   cursor: pointer;
-  width: 100%;
+  max-width: 700px;
+}
+
+input[type="text"]:hover, select:hover {
+  border: 1.5px solid #68d07b;
 }
 
 input:focus {
   
   outline: none;
-  border: 2px #68d07b solid;
+  border: 1.5px #68d07b solid;
 }
 
 input[type="radio"] {
   appearance: none;
+  margin: 0 5px;
   -webkit-appearance: none;
   width: 15px;
   height: 15px;
@@ -148,24 +156,27 @@ input[type="radio"]:hover {
   background-color: #68d07b;
 }
 
+
+
 select {
   font-family: "Lexend", sans-serif;
   font-weight: normal;
-  padding: 2px;
+  padding: 4px;
   color: rgb(13, 49, 34);
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 0.9rem;
   background-color: white;
   cursor: pointer;
-  width: 100%;
+  max-width: 700px;
 }
 
 select:focus {
   outline: none;
-  border: 2px #68d07b solid;
+  border: 1.5px #68d07b solid;
   color: rgb(13, 49, 34);
 }
+
 
 #incomeForm div, #expenseForm div {
   display: grid;
@@ -181,14 +192,13 @@ select:focus {
   margin: 0 30px;
 }
 
-
-
 #addExpenseBtn, #addIncomeBtn {
   display: block;
-  margin: 20px auto 0 auto;
+  margin: 60px auto 0 auto;
   padding: 8px;
   width: 120px;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 5px;
 }
 
 /* 
