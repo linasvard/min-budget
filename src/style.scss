@@ -213,11 +213,12 @@ Summeringslista
 .transactionCategory {
   font-weight: 600;
   color: black;
+  margin-inline-end: 10px;
 }
 
 .transactionDescription {
   color: black;
-  margin-inline: 10px;
+  /*margin-inline: 10px;*/
   font-size: 0.9rem;
   opacity: 80%;
 }
@@ -273,7 +274,6 @@ Summeringslista
     margin: 0;
     max-width: 500px;
   }
-  
   
 }
 
