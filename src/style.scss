@@ -79,7 +79,7 @@ main h1 {
 
 .budgetFormWrapper, .totalBalanceWrapper {
   background-color: beige;
-  padding: 16px;
+  padding: 10px;
   border-radius: 4px;
   padding-bottom: 30px;
   margin-bottom: 40px;
@@ -120,6 +120,7 @@ input[type="text"] {
   background-color: white;
   cursor: pointer;
   max-width: 700px;
+  width: 100%;
 }
 
 input[type="text"]:hover, select:hover {
