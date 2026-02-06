@@ -49,6 +49,22 @@ if (catExpenseDropdown) {
   });
 }
 
+// ==========================
+// LOCAL STORAGE FUNKTIONER
+// ==========================
+
+function saveToLocalStorage() {
+  localStorage.setItem('transactions', JSON.stringify('transactions'));
+}
+
+function loadFromLocalStorage() {
+  const savedTransactions = localStorage.getItem('transactions');
+  if (savedTransactions) {
+    transactions = JSON.parse(savedTransactions);
+  }
+}
+
+
 // ===========================
 // LÄGG TILL INKOMST
 // ===========================
