@@ -54,7 +54,7 @@ if (catExpenseDropdown) {
 // ==========================
 
 function saveToLocalStorage() {
-  localStorage.setItem('transactions', JSON.stringify('transactions'));
+  localStorage.setItem('transactions', JSON.stringify(transactions));
 }
 
 function loadFromLocalStorage() {
@@ -62,6 +62,7 @@ function loadFromLocalStorage() {
   if (savedTransactions) {
     transactions = JSON.parse(savedTransactions);
   }
+  
 }
 
 
@@ -99,6 +100,7 @@ function addIncome() {
   };
 
   transactions.push(transaction);
+  saveToLocalStorage();
 
   // Rensa formuläret
   document.querySelector('#incomeCategory').value = '';
@@ -148,6 +150,7 @@ function addExpense() {
 
   // Lägg till i transaktionsarrayen
   transactions.push(transaction);
+  saveToLocalStorage();
 
   // Rensa formuläret
   document.querySelector('#expenseCategory').value = '';
@@ -230,6 +233,7 @@ function renderTransactions() {
 
 window.deleteTransaction = function(id) {
   transactions = transactions.filter(t => t.id !== id);
+  saveToLocalStorage();
   renderTransactions();
 }
 
@@ -256,12 +260,15 @@ document.addEventListener('DOMContentLoaded', function() {
   incomeRadioBtn.checked = true;
   document.querySelector('#income')?.classList.remove('hidden');
   document.querySelector('#expense')?.classList.add('hidden');
+
+  loadFromLocalStorage();
+  renderTransactions();
 });
 
 // Initialisera tom lista när sidan laddas
-renderTransactions();
 
 
+// renderTransactions();
 
 /*
 // ===================================
