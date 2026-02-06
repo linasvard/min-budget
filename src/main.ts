@@ -235,6 +235,13 @@ function getCategoryName(category) {
   return found ? found.text : category;
 }
 
+// Återställ till inkomst vid sidladdning
+document.addEventListener('DOMContentLoaded', function() {
+  incomeRadioBtn.checked = true;
+  document.querySelector('#income')?.classList.remove('hidden');
+  document.querySelector('#expense')?.classList.add('hidden');
+});
+
 // Initialisera tom lista när sidan laddas
 renderTransactions();
 
