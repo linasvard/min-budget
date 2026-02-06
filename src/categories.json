@@ -1,7 +1,7 @@
 {
     "expenses": [
         {
-            "text": "Mat och Dagligvaror",
+            "text": "Mat & Dagligvaror",
             "value": "food"
         },
         {
@@ -9,11 +9,11 @@
             "value": "transport"
         },
         {
-            "text": "Nöje och Fritid",
+            "text": "Nöje & Fritid",
             "value": "entertainment"
         },
         {
-            "text": "Övrigt och personligt",
+            "text": "Övrigt & personligt",
             "value": "other"
         }
     ],

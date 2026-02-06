@@ -62,11 +62,15 @@ function addIncome() {
   // Hämta värden från formuläret
   const category = document.querySelector('#incomeCategory').value;
   const description = document.querySelector('.incomedescription').value;
-  const amount = document.querySelector('.incomenumber').value;
+  const amountInput = document.querySelector('.incomenumber').value;
+  
+  // Rensa mellanslag och konvertera till nummer
+  const amount = parseFloat(amountInput.replace(/\s/g, ''));
 
   // Validera att kategori och summa är ifyllda
-  if (!category || !amount) {
-    return; // Avbryt om något saknas
+  if (!category || !amount || isNaN(amount)) {
+
+    return;
   }
 
   // Skapa transaktionsobjekt
@@ -75,10 +79,9 @@ function addIncome() {
     type: 'income',
     category: category,
     description: description,
-    amount: parseFloat(amount.replace(/\s/g, ''))
+    amount: amount
   };
 
-  // Lägg till i transaktionsarrayen
   transactions.push(transaction);
 
   // Rensa formuläret
@@ -86,9 +89,19 @@ function addIncome() {
   document.querySelector('.incomedescription').value = '';
   document.querySelector('.incomenumber').value = '';
 
-  // Uppdatera visningen
   renderTransactions();
 }
+
+
+// LÄGG TILL MED ENTER-TANGENT
+
+const incomeForm = document.querySelector('#incomeForm');
+incomeForm?.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') { // Enter
+    e.preventDefault(); 
+    addIncome();
+  }
+});
 
 // ===========================
 // LÄGG TILL UTGIFT
@@ -101,7 +114,7 @@ function addExpense() {
   // Hämta värden från formuläret
   const category = document.querySelector('#expenseCategory').value;
   const description = document.querySelector('.expensedescription').value;
-  const amount = document.querySelector('.expenseenumber').value;
+  const amount = document.querySelector('.expensenumber').value;
 
   // Validera att kategori och summa är ifyllda
   if (!category || !amount) {
@@ -123,11 +136,21 @@ function addExpense() {
   // Rensa formuläret
   document.querySelector('#expenseCategory').value = '';
   document.querySelector('.expensedescription').value = '';
-  document.querySelector('.expenseenumber').value = '';
+  document.querySelector('.expensenumber').value = '';
 
   // Uppdatera visningen
   renderTransactions();
 }
+
+// LÄGG TILL MED ENTERTANGENTEN 
+
+const expenseForm = document.querySelector('#expenseForm');
+expenseForm?.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault(); 
+    addExpense();
+  }
+});
 
 // ===========================
 // RENDERA TRANSAKTIONSLISTA
