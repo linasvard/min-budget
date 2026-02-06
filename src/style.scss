@@ -268,7 +268,34 @@ Summeringslista
   width: 25px;
   height: 100%;
   margin-inline: 5px;
-   
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+footer span {
+  color: #e14a4a;
+  font-size: 1.5rem;
+  
+}
+footer .smallHeader {
+  font-size: 1rem;
+  margin-inline: -3px;
+  margin-inline-start: 3px;
+}
+footer p {
+  font-size: 1rem;
+  color: beige;
+  font-weight: 500;
+}
+
+.sloganFooter {
+  font-weight: 300;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
 
 /* Desktop */
