@@ -59,9 +59,9 @@ header .smallHeader2 {
 
 main {
   max-width: 1000px;
-  padding: 16px;
+  padding: 0 20px;
   
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
 h2 {
@@ -72,11 +72,12 @@ main h1 {
   font-size: 2rem;
   color: rgb(13, 49, 34);
   text-align: center;
+  padding: 5px;
 }
 
 .budgetFormWrapper, .totalBalanceWrapper {
   background-color: beige;
-  padding: 20px;
+  padding: 16px;
   border-radius: 4px;
   margin-bottom: 35px;
 }
@@ -96,6 +97,7 @@ button {
   font-family: "Lexend", sans-serif;
   font-weight: 500;
   border-radius: 4px;
+  font-size: 1rem;
 }
 
 button:hover {
