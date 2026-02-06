@@ -223,6 +223,18 @@ Summeringslista
 
 }
 
+.transactionInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.transactionDate {
+  color: black;
+  opacity: 60%;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
 .income-item {
   color: rgb(19, 113, 52);
 }

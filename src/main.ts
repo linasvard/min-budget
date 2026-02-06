@@ -154,7 +154,9 @@ function renderTransactions() {
     <div class="transactionsList">
   `;
 
+  
   // Lägg till varje transaktion i listan
+  const today = new Date().toLocaleDateString('sv-SE');
   transactions.forEach(transaction => {
     const typeClass = transaction.type === 'income' ? 'income-item' : 'expense-item';
     const sign = transaction.type === 'income' ? '+' : '-';
@@ -162,8 +164,13 @@ function renderTransactions() {
     html += `
       <div class="transactionItem ${typeClass}">
         <div class="transactionInfo">
-          <span class="transactionCategory">${getCategoryName(transaction.category)}</span>
-          <span class="transactionDescription">${transaction.description}</span>
+          <div>
+            <span class="transactionCategory">${getCategoryName(transaction.category)}</span>
+            <span class="transactionDescription">${transaction.description}</span>
+          </div>
+          <div>
+            <span class="transactionDate">${today}</span>
+          </div>  
         </div>
         <div class="transactionAmount">
           <span>${sign}${transaction.amount.toFixed(2)} SEK</span>
