@@ -61,8 +61,18 @@ function loadFromLocalStorage() {
   const savedTransactions = localStorage.getItem('transactions');
   if (savedTransactions) {
     transactions = JSON.parse(savedTransactions);
+    
+    // Migrera gamla transaktioner som saknar datum
+    const today = new Date().toLocaleDateString('sv-SE');
+    transactions = transactions.map(t => {
+      if (!t.date) {
+        return { ...t, date: today };
+      }
+      return t;
+    });
+    
+    saveToLocalStorage(); // Spara den uppdaterade datan
   }
-  
 }
 
 
@@ -96,7 +106,8 @@ function addIncome() {
     type: 'income',
     category: category,
     description: description,
-    amount: amount
+    amount: amount,
+     date: new Date().toLocaleDateString('sv-SE')
   };
 
   transactions.push(transaction);
@@ -145,7 +156,8 @@ function addExpense() {
     type: 'expense',
     category: category,
     description: description,
-    amount: parseFloat(amount.replace(/\s/g, ''))
+    amount: parseFloat(amount.replace(/\s/g, '')),
+     date: new Date().toLocaleDateString('sv-SE')
   };
 
   // Lägg till i transaktionsarrayen
@@ -196,12 +208,13 @@ function renderTransactions() {
     <div class="transactionsList">
   `;
 
-  
   // Lägg till varje transaktion i listan
-  const today = new Date().toLocaleDateString('sv-SE');
   transactions.forEach(transaction => {
     const typeClass = transaction.type === 'income' ? 'income-item' : 'expense-item';
     const sign = transaction.type === 'income' ? '+' : '-';
+    
+    // Använd transaktionens datum om det finns, annars dagens datum
+    const displayDate = transaction.date || new Date().toLocaleDateString('sv-SE');
     
     html += `
       <div class="transactionItem ${typeClass}">
@@ -211,7 +224,7 @@ function renderTransactions() {
             <span class="transactionDescription">${transaction.description}</span>
           </div>
           <div>
-            <span class="transactionDate">${today}</span>
+            <span class="transactionDate">${displayDate}</span>
           </div>  
         </div>
         <div class="transactionAmount">
