@@ -2,6 +2,22 @@
 
 import './style.scss'
 import categories from './categories.json';
+
+// =================
+// FÖR HELA KODEN
+// =================
+
+declare global {
+  interface Window { // utöka 
+    deleteTransaction: (id: number) => void;
+  }
+}
+
+window.deleteTransaction = function(id: number) {
+  transactions = transactions.filter(t => t.id !== id);
+  saveToLocalStorage();
+  renderTransactions();
+}
 // ===========================
 // DATALAGRING
 // ===========================
@@ -130,7 +146,8 @@ function addIncome() {
 
 const incomeForm = document.querySelector('#incomeForm');
 incomeForm?.addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') { // Enter
+  const event = e as KeyboardEvent;
+  if (event.key === 'Enter') { // Enter
     e.preventDefault(); 
     addIncome();
   }
@@ -181,7 +198,8 @@ function addExpense() {
 
 const expenseForm = document.querySelector('#expenseForm');
 expenseForm?.addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') {
+  const event = e as KeyboardEvent;
+  if (event.key === 'Enter') {
     e.preventDefault(); 
     addExpense();
   }
@@ -194,6 +212,8 @@ expenseForm?.addEventListener('keypress', function(e) {
 function renderTransactions() {
   const listContainer = document.querySelector('#listOfIncomeAndExpenses');
   
+  if (!listContainer) return;
+
   // Beräkna total balans
   const balance = transactions.reduce((total, transaction) => {
     if (transaction.type === 'income') {
