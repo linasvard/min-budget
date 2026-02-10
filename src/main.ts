@@ -1,4 +1,4 @@
-// @ts-nocheck 
+// @ts-check 
 
 import './style.scss'
 import categories from './categories.json';
@@ -7,7 +7,7 @@ import categories from './categories.json';
 // ===========================
 
 // Array för att lagra alla transaktioner (inkomster och utgifter)
-let transactions = [];
+let transactions: any[] = [];
 
 // ===========================
 // VAL AV INMATNING
@@ -90,9 +90,9 @@ addIncomeBtn?.addEventListener('click', addIncome);
 
 function addIncome() {
   // Hämta värden från formuläret
-  const category = document.querySelector('#incomeCategory').value;
-  const description = document.querySelector('.incomedescription').value;
-  const amountInput = document.querySelector('.incomenumber').value;
+  const category = (document.querySelector('#incomeCategory') as HTMLSelectElement).value;
+  const description = (document.querySelector('.incomedescription') as HTMLInputElement).value;
+  const amountInput = (document.querySelector('.incomenumber') as HTMLInputElement).value;
   
   // Rensa mellanslag och konvertera till nummer
   const amount = parseFloat(amountInput.replace(/\s/g, ''));
@@ -117,9 +117,9 @@ function addIncome() {
   saveToLocalStorage();
 
   // Rensa formuläret
-  document.querySelector('#incomeCategory').value = '';
-  document.querySelector('.incomedescription').value = '';
-  document.querySelector('.incomenumber').value = '';
+  (document.querySelector('#incomeCategory') as HTMLSelectElement).value = '';
+  (document.querySelector('.incomedescription') as HTMLInputElement).value = '';
+  (document.querySelector('.incomenumber') as HTMLInputElement).value = '';
 
   renderTransactions();
 }
