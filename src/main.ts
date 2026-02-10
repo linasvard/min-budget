@@ -278,7 +278,7 @@ window.deleteTransaction = function(id) {
 // HJÄLPFUNKTION
 // ===========================
 
-function getCategoryName(category) {
+function getCategoryName(category: string) {
   // Slå ihop alla kategorier till en lookup-tabell
   const allCategories = [
     ...categories.income,
