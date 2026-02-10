@@ -62,6 +62,9 @@ function loadFromLocalStorage() {
   if (savedTransactions) {
     transactions = JSON.parse(savedTransactions);
     
+    // Filtrera bort tranaktioner med null/undefined amount
+    transactions = transactions.filter(t => t.amount != null && !isNaN(t.amount));
+
     // Migrera gamla transaktioner som saknar datum
     const today = new Date().toLocaleDateString('sv-SE');
     transactions = transactions.map(t => {
