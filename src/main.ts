@@ -13,14 +13,15 @@ let transactions: any[] = [];
 // VAL AV INMATNING
 // ===========================
 
-const incomeRadioBtn = document.querySelector('input[type="radio"].income');
-const expenseRadioBtn = document.querySelector('input[type="radio"].expense');
+const incomeRadioBtn = document.querySelector('input[type="radio"].income') as HTMLInputElement;
+const expenseRadioBtn = document.querySelector('input[type="radio"].expense') as HTMLInputElement;
 
 incomeRadioBtn?.addEventListener('change', toggleIncomeOrExpense);
 expenseRadioBtn?.addEventListener('change', toggleIncomeOrExpense);
 
-function toggleIncomeOrExpense(e) {
-  const selectedInput = e.target.value;
+function toggleIncomeOrExpense(e: Event) {
+  const target = e.target as HTMLInputElement;
+  const selectedInput = target.value;
 
   if(selectedInput == 'income') {
     document.querySelector('#income')?.classList.remove('hidden');
@@ -144,9 +145,9 @@ addExpenseBtn?.addEventListener('click', addExpense);
 
 function addExpense() {
   // Hämta värden från formuläret
-  const category = document.querySelector('#expenseCategory').value;
-  const description = document.querySelector('.expensedescription').value;
-  const amount = document.querySelector('.expensenumber').value;
+  const category = (document.querySelector('#expenseCategory') as HTMLSelectElement).value;
+  const description = (document.querySelector('.expensedescription') as HTMLInputElement).value;
+  const amount = (document.querySelector('.expensenumber') as HTMLInputElement).value;
 
   // Validera att kategori och summa är ifyllda
   if (!category || !amount) {
@@ -168,9 +169,9 @@ function addExpense() {
   saveToLocalStorage();
 
   // Rensa formuläret
-  document.querySelector('#expenseCategory').value = '';
-  document.querySelector('.expensedescription').value = '';
-  document.querySelector('.expensenumber').value = '';
+  (document.querySelector('#expenseCategory') as HTMLSelectElement).value = '';
+  (document.querySelector('.expensedescription') as HTMLInputElement).value = '';
+  (document.querySelector('.expensenumber') as HTMLInputElement).value = '';
 
   // Uppdatera visningen
   renderTransactions();
@@ -273,7 +274,9 @@ function getCategoryName(category) {
 
 // Återställ till inkomst vid sidladdning
 document.addEventListener('DOMContentLoaded', function() {
-  incomeRadioBtn.checked = true;
+  if (incomeRadioBtn) {
+    incomeRadioBtn.checked = true;
+  }
   document.querySelector('#income')?.classList.remove('hidden');
   document.querySelector('#expense')?.classList.add('hidden');
 
