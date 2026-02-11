@@ -135,7 +135,7 @@ function addIncome(): void {
     type: 'income',
     category: category,
     description: description,
-    amount: amount,
+    amount: parseFloat(amountInput.replace(/\s/g, '')),
     date: new Date().toLocaleDateString('sv-SE')
   };
 
@@ -173,11 +173,14 @@ function addExpense(): void {
   // Hämta värden från formuläret
   const category = (document.querySelector('#expenseCategory') as HTMLSelectElement).value;
   const description = (document.querySelector('.expensedescription') as HTMLInputElement).value;
-  const amount = (document.querySelector('.expensenumber') as HTMLInputElement).value;
+  const amountInput = (document.querySelector('.expensenumber') as HTMLInputElement).value;
+
+  // Rensa mellanslag och konvertera till number
+  const amount = parseFloat(amountInput.replace(/\s/g, ''));
 
   // Validera att kategori och summa är ifyllda
-  if (!category || !amount) {
-    return; // Avbryt om något saknas
+  if (!category || !amount || isNaN(amount)) {
+    return; // Avbryt om något saknas eller är ogiltigt
   }
 
   // Skapa transaktionsobjekt
@@ -186,7 +189,7 @@ function addExpense(): void {
     type: 'expense',
     category: category,
     description: description,
-    amount: parseFloat(amount.replace(/\s/g, '')),
+    amount: parseFloat(amountInput.replace(/\s/g, '')),
     date: new Date().toLocaleDateString('sv-SE')
   };
 
