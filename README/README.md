@@ -35,6 +35,12 @@ _(Detta är innehåll som jag själv implimenterat och anses som extra)_
 
 ## Hemsidan/applikationen 
 
+#### Demo
+
+Länk till hemsidan: https://medieinstitutet.github.io/fed25d-js-inl-2-budget-app-linasvard/
+
+---
+
 ![Dektop-läge](budget-app-desktop.png)
 
 _Dektop-läge_
@@ -57,7 +63,7 @@ Nedan visas screenshots från lighthouse-rapport. Samma resultat för både desk
 
 ![Light-house rapport för desktop och mobil. Resultat: 92.](lighthouse-desktop-mobile.png)
 
-_Resultat: 92_
+_**Resultat:** 92_
 
 ---
 
