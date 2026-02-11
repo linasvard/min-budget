@@ -13,6 +13,13 @@ declare global {
   }
 }
 
+// =================
+// HJÄLPFUNKTIONER
+// =================
+
+const LOCALE = 'sv-SE';
+const CURRENCY = 'SEK';
+
 // ================
 // INTERFACES:
 // ================
@@ -26,12 +33,22 @@ interface ITransaction {
   date: string;
 }
 
+interface ICategory {
+  value: string;
+  text: string;
+}
+
+interface ICategories {
+  income: ICategory[];
+  expenses: ICategory[];
+}
+
 // ===========================
 // DATALAGRING:
 // ===========================
 
 // Array för att lagra alla transaktioner (inkomster och utgifter)
-let transactions: ITransaction [] = [];
+let transactions: ITransaction[] = [];
 
 // ===========================
 // VAL AV INMATNING
@@ -43,11 +60,11 @@ const expenseRadioBtn = document.querySelector('input[type="radio"].expense') as
 incomeRadioBtn?.addEventListener('change', toggleIncomeOrExpense);
 expenseRadioBtn?.addEventListener('change', toggleIncomeOrExpense);
 
-function toggleIncomeOrExpense(e: Event) {
+function toggleIncomeOrExpense(e: Event): void {
   const target = e.target as HTMLInputElement;
   const selectedInput = target.value;
 
-  if(selectedInput == 'income') {
+  if(selectedInput === 'income') {
     document.querySelector('#income')?.classList.remove('hidden');
     document.querySelector('#expense')?.classList.add('hidden');
   } else {
@@ -62,14 +79,14 @@ function toggleIncomeOrExpense(e: Event) {
 
 const catIncomeDropdown = document.querySelector('#incomeCategory');
 if (catIncomeDropdown) {
-  categories.income.forEach((category) => {
+  (categories as ICategories).income.forEach((category: ICategory) => {
     catIncomeDropdown.innerHTML += `<option value="${category.value}">${category.text}</option>`
   });
 }
 
 const catExpenseDropdown = document.querySelector('#expenseCategory');
 if (catExpenseDropdown) {
-  categories.expenses.forEach((category) => {
+  (categories as ICategories).expenses.forEach((category: ICategory) => {
     catExpenseDropdown.innerHTML += `<option value="${category.value}">${category.text}</option>`
   });
 }
@@ -78,28 +95,36 @@ if (catExpenseDropdown) {
 // LOCAL STORAGE FUNKTIONER
 // ==========================
 
-function saveToLocalStorage() {
-  localStorage.setItem('transactions', JSON.stringify(transactions));
+function saveToLocalStorage(): void {
+  try {
+    localStorage.setItem('transactions', JSON.stringify(transactions));
+  } catch (error) {
+    console.error('Kunde inte spara transaktioner:', error);
+  }
 }
 
-function loadFromLocalStorage() {
-  const savedTransactions = localStorage.getItem('transactions');
-  if (savedTransactions) {
-    transactions = JSON.parse(savedTransactions);
-    
-    // Filtrera bort tranaktioner med null/undefined amount
-    transactions = transactions.filter(t => t.amount != null && !isNaN(t.amount));
+function loadFromLocalStorage(): void {
+  try {
+    const savedTransactions = localStorage.getItem('transactions');
+    if (savedTransactions) {
+      transactions = JSON.parse(savedTransactions);
+      
+      // Filtrera bort transaktioner med null/undefined amount
+      transactions = transactions.filter(t => t.amount != null && !isNaN(t.amount));
 
-    // Migrera gamla transaktioner som saknar datum
-    const today = new Date().toLocaleDateString('sv-SE');
-    transactions = transactions.map(t => {
-      if (!t.date) {
-        return { ...t, date: today };
-      }
-      return t;
-    });
-    
-    saveToLocalStorage(); // Spara den uppdaterade datan
+      // Migrera gamla transaktioner som saknar datum
+      const today = new Date().toLocaleDateString(LOCALE);
+      transactions = transactions.map(t => {
+        if (!t.date) {
+          return { ...t, date: today };
+        }
+        return t;
+      });
+      
+      saveToLocalStorage();
+    }
+  } catch (error) {
+    console.error('Kunde inte ladda transaktioner:', error);
   }
 }
 
@@ -133,8 +158,8 @@ function addIncome(): void {
     type: 'income',
     category: category,
     description: description,
-    amount: parseFloat(amountInput.replace(/\s/g, '')),
-    date: new Date().toLocaleDateString('sv-SE')
+    amount: amount,
+    date: new Date().toLocaleDateString(LOCALE)
   };
 
   transactions.push(transaction);
@@ -187,8 +212,8 @@ function addExpense(): void {
     type: 'expense',
     category: category,
     description: description,
-    amount: parseFloat(amountInput.replace(/\s/g, '')),
-    date: new Date().toLocaleDateString('sv-SE')
+    amount: amount,
+    date: new Date().toLocaleDateString(LOCALE)
   };
 
   // Lägg till i transaktionsarrayen
@@ -219,7 +244,7 @@ expenseForm?.addEventListener('keypress', function(e) {
 // RENDERA TRANSAKTIONSLISTA
 // ===========================
 
-function renderTransactions() {
+function renderTransactions(): void {
   const listContainer = document.querySelector('#listOfIncomeAndExpenses');
   
   if (!listContainer) return;
@@ -243,12 +268,12 @@ function renderTransactions() {
   `;
 
   // Lägg till varje transaktion i listan
-  transactions.forEach(transaction => {
+  transactions.forEach((transaction: ITransaction) => {
     const typeClass = transaction.type === 'income' ? 'income-item' : 'expense-item';
     const sign = transaction.type === 'income' ? '+' : '-';
     
     // Använd transaktionens datum om det finns, annars dagens datum
-    const displayDate = transaction.date || new Date().toLocaleDateString('sv-SE');
+    const displayDate = transaction.date || new Date().toLocaleDateString(LOCALE);
     
     html += `
       <div class="transactionItem ${typeClass}">
@@ -262,7 +287,7 @@ function renderTransactions() {
           </div>  
         </div>
         <div class="transactionAmount">
-          <span>${sign}${transaction.amount.toFixed(2)} SEK</span>
+          <span>${sign}${transaction.amount.toFixed(2)} ${CURRENCY}</span>
           <button class="deleteBtn" onclick="deleteTransaction(${transaction.id})">×</button>
         </div>
       </div>
@@ -282,7 +307,7 @@ window.deleteTransaction = function(id: number): void {
   transactions = transactions.filter(t => t.id !== id);
   saveToLocalStorage();
   renderTransactions();
-}
+};
 
 
 
@@ -293,8 +318,8 @@ window.deleteTransaction = function(id: number): void {
 function getCategoryName(category: string): string {
   // Slå ihop alla kategorier till en lookup-tabell
   const allCategories = [
-    ...categories.income,
-    ...categories.expenses
+    ...(categories as ICategories).income,
+    ...(categories as ICategories).expenses
   ];
   
   // Hitta kategorin som matchar
@@ -303,6 +328,10 @@ function getCategoryName(category: string): string {
   // Returnera texten om den hittas, annars returnera originalvärdet
   return found ? found.text : category;
 }
+
+// ================
+// INIT 
+// ================
 
 // Återställ till inkomst vid sidladdning
 document.addEventListener('DOMContentLoaded', function() {
