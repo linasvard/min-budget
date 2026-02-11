@@ -14,11 +14,25 @@ declare global {
 }
 
 // =================
-// HJÄLPFUNKTIONER
+// HJÄLPMEDEL
 // =================
 
 const LOCALE = 'sv-SE';
 const CURRENCY = 'SEK';
+
+function clearIncomeForm(): void {
+  // rensa formuläret
+  (document.querySelector('#incomeCategory') as HTMLSelectElement).value = '';
+  (document.querySelector('.incomedescription') as HTMLInputElement).value = '';
+  (document.querySelector('.incomenumber') as HTMLInputElement).value = '';
+}
+
+function clearExpenseForm(): void {
+  // Rensa formuläret
+  (document.querySelector('#expenseCategory') as HTMLSelectElement).value = '';
+  (document.querySelector('.expensedescription') as HTMLInputElement).value = '';
+  (document.querySelector('.expensenumber') as HTMLInputElement).value = '';
+}
 
 // ================
 // INTERFACES:
@@ -166,10 +180,7 @@ function addIncome(): void {
   saveToLocalStorage();
 
   // Rensa formuläret
-  (document.querySelector('#incomeCategory') as HTMLSelectElement).value = '';
-  (document.querySelector('.incomedescription') as HTMLInputElement).value = '';
-  (document.querySelector('.incomenumber') as HTMLInputElement).value = '';
-
+  clearIncomeForm();
   renderTransactions();
 }
 
@@ -220,13 +231,11 @@ function addExpense(): void {
   transactions.push(transaction);
   saveToLocalStorage();
 
-  // Rensa formuläret
-  (document.querySelector('#expenseCategory') as HTMLSelectElement).value = '';
-  (document.querySelector('.expensedescription') as HTMLInputElement).value = '';
-  (document.querySelector('.expensenumber') as HTMLInputElement).value = '';
+  
 
   // Uppdatera visningen
   renderTransactions();
+  clearExpenseForm();
 }
 
 // LÄGG TILL MED ENTERTANGENTEN 
