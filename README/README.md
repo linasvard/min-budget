@@ -1,5 +1,9 @@
 # Min Budget. 
-### _En budget-app skriven i TypeScript_
+### _En budget-app skriven i TypeScript 💸_
+
+#### Skapad av:
+
+- [@linasvard](https://github.com/linasvard)
 
 ## Case:
 > I den här uppgiften ska du skapa en liten "budget-app" där man kan mata in inkomster och utgifter, samt få en balansöversikt.
@@ -24,7 +28,20 @@ _(Detta är innehåll som jag själv implimenterat och anses som extra)_
   - "Summa"-fältet är tomt
   - Kategori ej valt
 
+
+## Hemsidan/applikationen 
+Färger:   
+
+
 <br>
 
 
-![Sidan innehåller validerad CSS, HTML och JavaScript/TypeScript.](image.png)
+![Sidans CSS är validerad](image.png) 
+![Sidans HTML är validerad](validation-budget.png)
+
+_Sidans CSS och HTML är validerad_ 👆🏻
+
+---
+
+### Tillgänglighetsgranskning:
+Nedan visas screenshots från lighthouse 

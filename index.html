@@ -33,21 +33,22 @@
         <div id="income">
           <form id="incomeForm">
             <h2>Inkomst<span class="smallHeader">.</span></h2>
+            
             <div>
-              <span>Kategori</span>
+              <label for="incomeCategory">Kategori</label>
               <select name="incomeCategory" id="incomeCategory">
                 <option value="" disabled selected>Välj kategori...</option>
-                
               </select>
             </div>
             
             <div>
-              <span>Summa:</span>
-              <input type="text" name="incomeField" placeholder="SEK" class="incomenumber">
-            </div>  
+              <label for="incomeAmount">Summa:</label>
+              <input type="text" name="incomeField" id="incomeAmount" placeholder="SEK" class="incomenumber">
+            </div>
+            
             <div>
-              <span class="descriptionField">Beskrivning</span>
-              <input type="text" name="incomeField" placeholder="Lägg in beskrivning..." class="incomedescription">
+              <label for="incomeDescription">Beskrivning</label>
+              <input type="text" name="incomeField" id="incomeDescription" placeholder="Lägg in beskrivning..." class="incomedescription">
             </div>
           </form>
           <button id="addIncomeBtn">Lägg till</button>
@@ -56,20 +57,22 @@
         <div id="expense" class="hidden">
           <form id="expenseForm">
             <h2>Utgift<span class="smallHeader2">.</span></h2>
+            
             <div class="formWrapper">
-              <span>Kategori</span>
+              <label for="expenseCategory">Kategori</label>
               <select name="expenseCategory" id="expenseCategory">
                 <option value="" disabled selected>Välj kategori...</option>
               </select>
             </div>
             
             <div>
-              <span>Summa:</span>
-              <input type="text" name="expenseField" placeholder="SEK" class="expensenumber">
+              <label for="expenseAmount">Summa:</label>
+              <input type="text" name="expenseField" id="expenseAmount" placeholder="SEK" class="expensenumber">
             </div>
+            
             <div>
-              <span>Beskrivning</span>
-              <input type="text" name="expenseField" placeholder="Lägg in beskrivning..." class="expensedescription">
+              <label for="expenseDescription">Beskrivning</label>
+              <input type="text" name="expenseField" id="expenseDescription" placeholder="Lägg in beskrivning..." class="expensedescription">
             </div>
           </form> 
           <button id="addExpenseBtn">Lägg till</button>
