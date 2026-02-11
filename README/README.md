@@ -1,9 +1,13 @@
 # Min Budget. 
 ### _En budget-app skriven i TypeScript 💸_
+**Tidsåtgång:** ca 8 dagar.
 
+---
 #### Skapad av:
 
 - [@linasvard](https://github.com/linasvard)
+
+
 
 ## Case:
 > I den här uppgiften ska du skapa en liten "budget-app" där man kan mata in inkomster och utgifter, samt få en balansöversikt.
@@ -30,18 +34,37 @@ _(Detta är innehåll som jag själv implimenterat och anses som extra)_
 
 
 ## Hemsidan/applikationen 
-Färger:   
+
+![Dektop-läge](budget-app-desktop.png)
+
+_Dektop-läge_
+
+![Mobil-läge](budget-app-mobile.png)
+
+_Mobil-läge_
+
+### Beskrivning
+Mörkgrön färg används som bakgrund så grönt associeras med pengar och stabilitet. Kompletterande färger som ljusgrön och röd används för att koppla till budget-appens funktion associerat med positivt respektive negativt värde.
+
+Enkel design har använts för att kunna lägga fokus på TypeScript. Därav få, enkla färger och lättläst typsnitt i form av sans-serif.
 
 
-<br>
+
+---
+
+### Tillgänglighetsgranskning:
+Nedan visas screenshots från lighthouse-rapport. Samma resultat för både desktop och mobil därav enbart en rapport som visas. 
+
+![Light-house rapport för desktop och mobil. Resultat: 92.](lighthouse-desktop-mobile.png)
+
+_Resultat: 92_
+
+---
+
+### Validering
 
 
 ![Sidans CSS är validerad](image.png) 
 ![Sidans HTML är validerad](validation-budget.png)
 
 _Sidans CSS och HTML är validerad_ 👆🏻
-
----
-
-### Tillgänglighetsgranskning:
-Nedan visas screenshots från lighthouse 
