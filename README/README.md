@@ -14,7 +14,7 @@
 
 ### Kort sammanfattning av innehåll - _krav_
 - Dropdown-meny för att kunna välja kategori, olika baserat på val av transaktion
-- Fält för att mata in ugift eller inkomst
+- Fält för att mata in utgift eller inkomst
 - Fält för att beskriva tidigare input (frivillig för användaren)
 - En balans som ska uppdateras varje gång användaren lägger in en transaktion
 - Varje post ska kunna gå att raderas
@@ -23,17 +23,17 @@
 - Sidan ska givetvis vara responsiv och funka på både mobil och desktop 
 
 ### Tillägg - _frivilligt_
-_(Detta är innehåll som jag själv implimenterat och anses som extra)_
+_(Detta är innehåll som jag själv implementerat och anses som extra)_
 
 - Ett datum bredvid varje transaktionspost vilket också sparas och behålls när användaren går tillbaka till listan dagar senare
  
 - Användaren kan inte skicka iväg formuläret om vissa krav inte är uppfyllda så som:
   - Enbart siffror på "Summa"-fältet
-  - "Summa"-fältet är tomt
-  - Kategori ej valt
+  - "Summa"-fältet måste innehålla giltiga tecken (enbart siffror)
+  - Kategori måste vara vald
 
 
-## Hemsidan/applikationen 
+## Applikationen 
 
 #### Demo
 
@@ -41,9 +41,9 @@ Länk till hemsidan: https://medieinstitutet.github.io/fed25d-js-inl-2-budget-ap
 
 ---
 
-![Dektop-läge](budget-app-desktop.png)
+![Desktop-läge](budget-app-desktop.png)
 
-_Dektop-läge_
+_Desktop-läge_
 
 ![Mobil-läge](budget-app-mobile.png)
 
