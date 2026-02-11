@@ -13,17 +13,26 @@ declare global {
   }
 }
 
-window.deleteTransaction = function(id: number) {
-  transactions = transactions.filter(t => t.id !== id);
-  saveToLocalStorage();
-  renderTransactions();
+// ================
+// INTERFACES 
+// ================
+
+interface ITransaction {
+  id: number;
+  type: 'income' | 'expense';
+  category: string;
+  description: string;
+  amount: number;
+  date: string;
 }
+
+
 // ===========================
 // DATALAGRING
 // ===========================
 
 // Array för att lagra alla transaktioner (inkomster och utgifter)
-let transactions: any[] = [];
+let transactions: ITransaction [] = [];
 
 // ===========================
 // VAL AV INMATNING
@@ -105,7 +114,7 @@ addIncomeBtn?.addEventListener('click', addIncome);
 
 
 
-function addIncome() {
+function addIncome(): void {
   // Hämta värden från formuläret
   const category = (document.querySelector('#incomeCategory') as HTMLSelectElement).value;
   const description = (document.querySelector('.incomedescription') as HTMLInputElement).value;
@@ -121,13 +130,13 @@ function addIncome() {
   }
 
   // Skapa transaktionsobjekt
-  const transaction = {
+  const transaction: ITransaction = {
     id: Date.now(),
     type: 'income',
     category: category,
     description: description,
     amount: amount,
-     date: new Date().toLocaleDateString('sv-SE')
+    date: new Date().toLocaleDateString('sv-SE')
   };
 
   transactions.push(transaction);
@@ -160,7 +169,7 @@ incomeForm?.addEventListener('keypress', function(e) {
 const addExpenseBtn = document.querySelector('#addExpenseBtn');
 addExpenseBtn?.addEventListener('click', addExpense);
 
-function addExpense() {
+function addExpense(): void {
   // Hämta värden från formuläret
   const category = (document.querySelector('#expenseCategory') as HTMLSelectElement).value;
   const description = (document.querySelector('.expensedescription') as HTMLInputElement).value;
@@ -172,13 +181,13 @@ function addExpense() {
   }
 
   // Skapa transaktionsobjekt
-  const transaction = {
+  const transaction: ITransaction = {
     id: Date.now(),
     type: 'expense',
     category: category,
     description: description,
     amount: parseFloat(amount.replace(/\s/g, '')),
-     date: new Date().toLocaleDateString('sv-SE')
+    date: new Date().toLocaleDateString('sv-SE')
   };
 
   // Lägg till i transaktionsarrayen
@@ -268,17 +277,19 @@ function renderTransactions() {
 // TA BORT TRANSAKTION
 // ===========================
 
-window.deleteTransaction = function(id) {
+window.deleteTransaction = function(id: number): void {
   transactions = transactions.filter(t => t.id !== id);
   saveToLocalStorage();
   renderTransactions();
 }
 
+
+
 // ===========================
 // HJÄLPFUNKTION
 // ===========================
 
-function getCategoryName(category: string) {
+function getCategoryName(category: string): string {
   // Slå ihop alla kategorier till en lookup-tabell
   const allCategories = [
     ...categories.income,
