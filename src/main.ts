@@ -14,7 +14,7 @@ declare global {
 }
 
 // ================
-// INTERFACES 
+// INTERFACES:
 // ================
 
 interface ITransaction {
@@ -26,9 +26,8 @@ interface ITransaction {
   date: string;
 }
 
-
 // ===========================
-// DATALAGRING
+// DATALAGRING:
 // ===========================
 
 // Array för att lagra alla transaktioner (inkomster och utgifter)
@@ -103,7 +102,6 @@ function loadFromLocalStorage() {
     saveToLocalStorage(); // Spara den uppdaterade datan
   }
 }
-
 
 // ===========================
 // LÄGG TILL INKOMST
@@ -318,31 +316,5 @@ document.addEventListener('DOMContentLoaded', function() {
   renderTransactions();
 });
 
-// Initialisera tom lista när sidan laddas
 
-
-// renderTransactions();
-
-/*
-// ===================================
-// HANTERING AV INKOMSTER OCH UTGIFTER
-// ===================================
-let transactions = [];
-
-const addIncomeBtn = document.querySelector('#addIncomeBtn');
-const addExpenseBtn = document.querySelector('#addExpenseBtn');
-
-// Eventlisteners
-
-addExpenseBtn?.addEventListener('click', addIncome);
-// addExpenseBtn?.addEventListener('click', addExpense);
-
-function addIncome() {
-  const incomeCategory = document.querySelector('#incomeCategory').value;
-  const incomeDescription = document.querySelector('.incomedescription').value;
-  const incomeAmount = parseFloat(document.querySelector('.incomenumber').value);
-  
-  
-}
-  */
  
