@@ -72,8 +72,10 @@ _**Resultat:** 92_
 <a href="https://validator.w3.org/check?uri=referer">
   <img src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML" />
 </a>
-
-![Sidans CSS är validerad](image.png) 
-![Sidans HTML är validerad](validation-budget.png)
+<a href="https://jigsaw.w3.org/css-validator/check/referer">
+  <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS" />
+</a>
+ 
+![Sidans HTML är validerad](/README/validation-budget.png)
 
 _Sidans CSS och HTML är validerad_ 👆🏻
