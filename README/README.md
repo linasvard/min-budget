@@ -35,9 +35,9 @@ _(Detta är innehåll som jag själv implementerat och anses som extra)_
 
 ## Applikationen 
 
-#### Demo
+### Demo
 
-Länk till hemsidan: https://medieinstitutet.github.io/fed25d-js-inl-2-budget-app-linasvard/
+
 
 ---
 
@@ -69,6 +69,9 @@ _**Resultat:** 92_
 
 ### Validering
 
+<a href="https://validator.w3.org/check?uri=referer">
+  <img src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML" />
+</a>
 
 ![Sidans CSS är validerad](image.png) 
 ![Sidans HTML är validerad](validation-budget.png)
