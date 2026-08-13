@@ -1,16 +1,15 @@
 # Min Budget. 
-### _En budget-app skriven i TypeScript 💸_
+ 
+ _En responsiv budget-app skriven i TypeScript_
+
 **Tidsåtgång:** ca 8 dagar.
 
----
-#### Skapad av:
-
-- [@linasvard](https://github.com/linasvard)
-
+**Skapad av:**
+[@linasvard](https://github.com/linasvard)
 
 
 ## Case:
-> I den här uppgiften ska du skapa en liten "budget-app" där man kan mata in inkomster och utgifter, samt få en balansöversikt.
+> Detta är ett skolprojekt med fokus på att lära sig att kunna spara information i datorns local storage samt implementera TypeScript.
 
 ### Kort sammanfattning av innehåll - _krav_
 - Dropdown-meny för att kunna välja kategori, olika baserat på val av transaktion
@@ -23,7 +22,7 @@
 - Sidan ska givetvis vara responsiv och funka på både mobil och desktop 
 
 ### Tillägg - _frivilligt_
-_(Detta är innehåll som jag själv implementerat och anses som extra)_
+_Detta är innehåll som jag själv implementerat och anses som extra_
 
 - Ett datum bredvid varje transaktionspost vilket också sparas och behålls när användaren går tillbaka till listan dagar senare
  
@@ -37,17 +36,11 @@ _(Detta är innehåll som jag själv implementerat och anses som extra)_
 
 ### Demo
 
+[Live-Demo 🔗](https://linasvard.github.io/min-budget/)
 
+![Desktop-läge](README/gif-demo.gif)
 
----
-
-![Desktop-läge](budget-app-desktop.png)
-
-_Desktop-läge_
-
-![Mobil-läge](budget-app-mobile.png)
-
-_Mobil-läge_
+![Mobil-läge](README/gif-demo-mob.gif)
 
 ### Beskrivning
 Mörkgrön färg används som bakgrund så grönt associeras med pengar och stabilitet. Kompletterande färger som ljusgrön och röd används för att koppla till budget-appens funktion associerat med positivt respektive negativt värde.
@@ -61,7 +54,7 @@ Enkel design har använts för att kunna lägga fokus på TypeScript. Därav få
 ### Tillgänglighetsgranskning:
 Nedan visas screenshots från lighthouse-rapport. Samma resultat för både desktop och mobil därav enbart en rapport som visas. 
 
-![Light-house rapport för desktop och mobil. Resultat: 92.](lighthouse-desktop-mobile.png)
+![Light-house rapport för desktop och mobil. Resultat: 92.](README/lighthouse-desktop-mobile.png)
 
 _**Resultat:** 92_
 
@@ -75,7 +68,7 @@ _**Resultat:** 92_
 <a href="https://jigsaw.w3.org/css-validator/check/referer">
   <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS" />
 </a>
- 
+
 ![Sidans HTML är validerad](/README/validation-budget.png)
 
 _Sidans CSS och HTML är validerad_ 👆🏻
